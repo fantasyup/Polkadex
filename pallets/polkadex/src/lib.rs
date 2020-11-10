@@ -94,6 +94,8 @@ decl_error! {
 		PriceOrQuantityTooLow,
 		/// OverFlow Error - Price or Quantity value is too high
 		OverFlowError,
+		/// Order was not able to market make and cancelled
+		OrderMatched,
 	}
 }
 
@@ -186,7 +188,7 @@ decl_module! {
             ensure!(<Orderbooks<T>>::contains_key(&trading_pair), <Error<T>>::InvalidTradingPair);
             ensure!(price.checked_mul(&quantity).is_some(),<Error<T>>::OverFlowError);
             match order_type {
-                OrderType::BidLimit | OrderType::AskLimit => {
+                OrderType::BidLimit | OrderType::AskLimit | OrderType::BidLimitMM | OrderType::AskLimitMM | OrderType::BidLimitNS | OrderType::AskLimitNS => {
                     ensure!(price > 1000000.into() && quantity > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
                 },
                 OrderType::BidMarket => {
@@ -388,6 +390,22 @@ impl<T: Trait> Module<T> {
                         Self::consume_order(&mut current_order, &mut orderbook)?;
                     }
 
+                    OrderType::AskLimitNS | OrderType::BidLimitNS => {
+                        if (current_order.order_type == OrderType::BidLimitNS &&
+                            current_order.price >= orderbook.best_ask_price &&
+                            orderbook.best_ask_price != FixedU128::from(0)) ||
+                            (current_order.order_type == OrderType::AskLimitNS &&
+                                current_order.price <= orderbook.best_bid_price &&
+                                orderbook.best_bid_price != FixedU128::from(0)) {
+                            Self::consume_order(&mut current_order, &mut orderbook)?;
+
+                            if current_order.quantity > FixedU128::from(0) {
+                                Self::insert_order(&current_order, &mut orderbook)?;
+                            }
+                        } else {
+                            Self::insert_order(&current_order, &mut orderbook)?;
+                        }
+                    }
                     OrderType::AskLimit | OrderType::BidLimit => {
                         if (current_order.order_type == OrderType::BidLimit &&
                             current_order.price >= orderbook.best_ask_price &&
@@ -400,6 +418,20 @@ impl<T: Trait> Module<T> {
                             if current_order.quantity > FixedU128::from(0) {
                                 Self::insert_order(&current_order, &mut orderbook)?;
                             }
+                        } else if 1==2 { // TODO: Condition to check if the swap pool is enough to execute
+                            // TODO: Execute against Swap Pool
+                        } else {
+                            Self::insert_order(&current_order, &mut orderbook)?;
+                        }
+                    }
+                    OrderType::AskLimitMM | OrderType::BidLimitMM => {
+                        if (current_order.order_type == OrderType::BidLimitMM &&
+                            current_order.price >= orderbook.best_ask_price &&
+                            orderbook.best_ask_price != FixedU128::from(0)) ||
+                            (current_order.order_type == OrderType::AskLimitMM &&
+                                current_order.price <= orderbook.best_bid_price &&
+                                orderbook.best_bid_price != FixedU128::from(0)) {
+                            return Err(Error::<T>::OrderMatched);
                         } else {
                             Self::insert_order(&current_order, &mut orderbook)?;
                         }
@@ -676,7 +708,7 @@ impl<T: Trait> Module<T> {
         }
 
         match current_order.order_type {
-            OrderType::BidLimit => {
+            OrderType::BidLimit | OrderType::BidLimitNS => {
                 let mut linkedpricelevel: LinkedPriceLevel<T> = <PriceLevels<T>>::take(&current_order.trading_pair, &orderbook.best_ask_price);
                 let mut asks_levels: Vec<FixedU128> = <AsksLevels<T>>::get(&current_order.trading_pair);
                 while current_order.quantity > FixedU128::from(0) {
@@ -789,7 +821,7 @@ impl<T: Trait> Module<T> {
                 <AsksLevels<T>>::insert(&current_order.trading_pair, asks_levels);
             }
 
-            OrderType::AskLimit => {
+            OrderType::AskLimit | OrderType::AskLimitNS => {
                 let mut linkedpricelevel: LinkedPriceLevel<T> = <PriceLevels<T>>::take(&current_order.trading_pair, &orderbook.best_bid_price);
                 let mut bids_levels: Vec<FixedU128> = <BidsLevels<T>>::get(&current_order.trading_pair);
                 while current_order.quantity > FixedU128::from(0) {
@@ -902,6 +934,7 @@ impl<T: Trait> Module<T> {
 
                 <BidsLevels<T>>::insert(&current_order.trading_pair, bids_levels);
             }
+            _ => {}
         }
 
         <MarketInfo<T>>::insert(&current_order.trading_pair, current_block_number, market_data);
@@ -1094,12 +1127,12 @@ impl<T: Trait> Module<T> {
     /// Checks all the basic checks
     fn basic_order_checks(order: &Order<T>) -> Result<Orderbook<T>, Error<T>> {
         match order.order_type {
-            OrderType::BidLimit | OrderType::AskLimit if order.price <= FixedU128::from(0) || order.quantity <= FixedU128::from(0) => Err(<Error<T>>::InvalidPriceOrQuantityLimit.into()),
+            OrderType::BidLimit | OrderType::AskLimit | OrderType::BidLimitMM | OrderType::AskLimitMM | OrderType::BidLimitNS | OrderType::AskLimitNS if order.price <= FixedU128::from(0) || order.quantity <= FixedU128::from(0) => Err(<Error<T>>::InvalidPriceOrQuantityLimit.into()),
             OrderType::BidMarket if order.price <= FixedU128::from(0) => Err(<Error<T>>::InvalidBidMarketPrice.into()),
-            OrderType::BidMarket | OrderType::BidLimit => Self::check_order(order),
+            OrderType::BidMarket | OrderType::BidLimit | OrderType::BidLimitMM | OrderType::BidLimitNS => Self::check_order(order),
 
             OrderType::AskMarket if order.quantity <= FixedU128::from(0) => Err(<Error<T>>::InvalidAskMarketQuantity.into()),
-            OrderType::AskMarket | OrderType::AskLimit => Self::check_order(order),
+            OrderType::AskMarket | OrderType::AskLimit | OrderType::AskLimitMM | OrderType::AskLimitNS => Self::check_order(order),
 
         }
     }
@@ -1107,8 +1140,8 @@ impl<T: Trait> Module<T> {
     fn check_order(order: &Order<T>) -> Result<Orderbook<T>, Error<T>> {
         let orderbook: Orderbook<T> = <Orderbooks<T>>::get(&order.trading_pair);
         let balance: <T>::Balance = match order.order_type {
-            OrderType::BidLimit | OrderType::BidMarket => pallet_generic_asset::Module::<T>::free_balance(&orderbook.base_asset_id, &order.trader),
-            OrderType::AskMarket | OrderType::AskLimit => pallet_generic_asset::Module::<T>::free_balance(&orderbook.quote_asset_id, &order.trader),
+            OrderType::BidLimit | OrderType::BidMarket | OrderType::BidLimitNS | OrderType::BidLimitMM => pallet_generic_asset::Module::<T>::free_balance(&orderbook.base_asset_id, &order.trader),
+            OrderType::AskMarket | OrderType::AskLimit | OrderType::AskLimitNS | OrderType::AskLimitMM => pallet_generic_asset::Module::<T>::free_balance(&orderbook.quote_asset_id, &order.trader),
         };
 
         match Self::convert_balance_to_fixed_u128(balance) {

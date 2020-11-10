@@ -17,10 +17,17 @@ use crate::Trait;
 #[derive(Encode, Decode, Clone, PartialEq, Eq, Debug)]
 #[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
 pub enum OrderType {
-    BidLimit,
     BidMarket,
-    AskLimit,
     AskMarket,
+    // These orders will be matched against LPs
+    BidLimit,
+    AskLimit,
+    // These orders will not be matched against LPs
+    BidLimitNS,
+    AskLimitNS,
+    // These orders will only market make other pay fees and cancel
+    BidLimitMM,
+    AskLimitMM
 }
 
 #[derive(Encode, Decode, Clone, PartialEq, Eq, Debug)]
