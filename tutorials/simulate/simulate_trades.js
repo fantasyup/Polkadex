@@ -228,24 +228,25 @@ async function polkadex_market_data() {
     // nonces.pop()
     // let counter = 0;
     let alice_nonce = 3;
-    binance.websockets.trades(['BTCUSDT'], (trades) => {
+    binance.websockets.trades(['DOTUSDT'], (trades) => {
         let {e: eventType, E: eventTime, s: symbol, p: price, q: quantity, m: maker, a: tradeId} = trades;
         // console.info(symbol+" trade update. price: "+price+", quantity: "+quantity+", BUY: "+maker);
 
-        let price_converted = new BN(cleanString((parseFloat(price) * UNIT).toString()),10);
-        let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
-        if (maker === true) {
-            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(alice, {nonce: alice_nonce},(status)=>{
-                console.log(status.status.toHuman())
-            });
-        } else {
-            api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(alice, {nonce: alice_nonce},(status)=>{
-                console.log(status.status.toHuman())
-            });
-        }
-        alice_nonce = alice_nonce + 1;
+        // let price_converted = new BN(cleanString((parseFloat(price) * UNIT).toString()),10);
+        // let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
+        // if (maker === true) {
+        //     api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(alice, {nonce: alice_nonce},(status)=>{
+        //         console.log(status.status.toHuman())
+        //     });
+        // } else {
+        //     api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(alice, {nonce: alice_nonce},(status)=>{
+        //         console.log(status.status.toHuman())
+        //     });
+        // }
+        // alice_nonce = alice_nonce + 1;
         // counter = counter + 1;
         // console.log(counter)
+        console.log(trades)
     });
 
 }
