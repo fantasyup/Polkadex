@@ -204,7 +204,7 @@ async function polkadex_market_data() {
     // Create the tradingPair BTC/USDT - (2,1)
     await api.tx.polkadex.registerNewOrderbook(2, 1).signAndSend(alice, {nonce: 2});
 
-    let keys_to_generate = 100;
+    let keys_to_generate = 1000;
     // Let's create 1000 keys
     let keys = []
     let nonces = []
@@ -234,12 +234,12 @@ async function polkadex_market_data() {
         let price_converted = new BN(cleanString((parseFloat(price) * UNIT).toString()),10);
         let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
         if (maker === true) {
-            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]}, (status) => {
-                console.log(status.status.toHuman());
+            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]}, (status,) => {
+                console.log(status.status.isInvalid, ":",keys[counter%keys.length]);
             });
         } else {
             api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[[counter%keys.length]], {nonce: nonces[counter%keys.length]}, (status) => {
-                console.log(status.status.toHuman());
+                console.log(status.status.isInvalid, ":",keys[counter%keys.length]);
             });
         }
         nonces[counter%keys.length] = nonces[counter%keys.length] + 1;
