@@ -235,11 +235,11 @@ async function polkadex_market_data() {
         let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
         if (maker === true) {
             api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]}, (status,) => {
-                console.log(status.status.isInvalid, ":",keys[counter%keys.length]);
+                console.log(status.status.isInvalid, ":",keys[counter%keys.length].address);
             });
         } else {
             api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[[counter%keys.length]], {nonce: nonces[counter%keys.length]}, (status) => {
-                console.log(status.status.isInvalid, ":",keys[counter%keys.length]);
+                console.log(status.status.isInvalid, ":",keys[counter%keys.length].address);
             });
         }
         nonces[counter%keys.length] = nonces[counter%keys.length] + 1;
