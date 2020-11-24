@@ -234,20 +234,13 @@ async function polkadex_market_data() {
         let price_converted = new BN(cleanString((parseFloat(price) * UNIT).toString()),10);
         let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
         if (maker === true) {
-            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]}, (status,) => {
-                if (status.status.isInvalid | status.status.isDropped | status.status.isFuture){
-                    console.log(keys[counter%keys.length].address,":",status.status.toHuman());
-                }
-            });
+            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]});
         } else {
-            api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[[counter%keys.length]], {nonce: nonces[counter%keys.length]}, (status) => {
-                if (status.status.isInvalid | status.status.isDropped | status.status.isFuture){
-                    console.log(keys[counter%keys.length].address,":",status.status.toHuman());
-                }
-            });
+            api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[[counter%keys.length]], {nonce: nonces[counter%keys.length]});
         }
         nonces[counter%keys.length] = nonces[counter%keys.length] + 1;
         counter = counter + 1;
+        console.log(counter)
     });
 }
 
