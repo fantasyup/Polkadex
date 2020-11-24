@@ -17,6 +17,6 @@
     "process": "^0.11.10"
   },
   "devDependencies": {
-    "@polkadot/api": "^2.7.1",
+    "@polkadot/api": "^2.7.1"
   }
 }

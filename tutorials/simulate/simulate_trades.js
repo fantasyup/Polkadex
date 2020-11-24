@@ -204,20 +204,28 @@ async function polkadex_market_data() {
     // Create the tradingPair BTC/USDT - (2,1)
     await api.tx.polkadex.registerNewOrderbook(2, 1).signAndSend(alice, {nonce: 2});
 
-    await api.tx.genericAsset.transfer(1,bob.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 3});
-    await api.tx.genericAsset.transfer(2,bob.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 4});
-
-    await api.tx.genericAsset.transfer(1,charlie.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 5});
-    await api.tx.genericAsset.transfer(2,charlie.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 6});
-    await api.tx.genericAsset.transfer(1,dave.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 7});
-    await api.tx.genericAsset.transfer(2,dave.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 8});
-    await api.tx.genericAsset.transfer(1,ferdie.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 9});
-    await api.tx.genericAsset.transfer(2,ferdie.address,total_issuance.div(new BN(5,10))).signAndSend(alice, {nonce: 10});
-
-    // Let's simulate some traders
-    let alice_nonce = 11;
-    let keys = [alice,bob,charlie,dave,ferdie];
-    let nonces = [alice_nonce,0,0,0,0]
+    let keys_to_generate = 100;
+    // Let's create 1000 keys
+    let keys = []
+    let nonces = []
+    for(let i=0; i<keys_to_generate;i++){
+        const key = keyring.addFromUri('//Alice'+i.toString(), {name: 'Alice '+i.toString()});
+        keys.push(key);
+        nonces.push(0);
+        console.log("Creating key #",i)
+    }
+    let alice_nonce = 3;
+    console.log("Assets Transferring...")
+    for(let i=0; i<keys_to_generate; i++){
+        await api.tx.genericAsset.transfer(1,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce});
+        await api.tx.genericAsset.transfer(2,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+1});
+        await api.tx.genericAsset.transfer(0,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+2});
+        alice_nonce = alice_nonce+3;
+        console.log("Address: ",keys[i].address," #",i)
+    }
+    console.log("Assets Transferred.")
+    keys.pop()
+    nonces.pop()
     let counter = 0;
     binance.websockets.trades(['BTCUSDT'], (trades) => {
         let {e: eventType, E: eventTime, s: symbol, p: price, q: quantity, m: maker, a: tradeId} = trades;
