@@ -1,41 +1,11 @@
-// IMPORTANT NOTE
-// This is a simple tutorial that shows how to retrieve market data from Polkadex nodes in real time
-// These data can be used to do technical analysis off-chain and place trades accordingly.
-// The given example uses trades from ETH/BTC market of Binance Public API to simulate trades. Binance API was not chosen on
-// endorse them but only as an example, It should only be treated as a quick and dirty solution to simulate real trades.
-
-// Polkadex team is not associated with Binance in any way.
-
-
 // Import
 const {ApiPromise, WsProvider, Keyring} = require('@polkadot/api');
-// Crypto promise, package used by keyring internally
-const {cryptoWaitReady} = require('@polkadot/util-crypto');
-const BN = require("bn.js")
-// Initialize Binance
-const Binance = require('node-binance-api');
-const binance = new Binance().options({
-    APIKEY: '<key>',
-    APISECRET: '<secret>'
-});
-
 
 const wsProvider = new WsProvider('ws://localhost:9944');
 polkadex_market_data().then();
 
 
 async function polkadex_market_data() {
-    // Wait for the promise to resolve, async WASM or `cryptoWaitReady().then(() => { ... })`
-    await cryptoWaitReady();
-
-    // Create a keyring instance
-    const keyring = new Keyring({type: 'sr25519'});
-    // The create new instance of Alice
-    const alice = keyring.addFromUri('//Alice', {name: 'Alice default'});
-    const bob = keyring.addFromUri('//Bob', {name: 'Bob default'});
-    const charlie = keyring.addFromUri('//Charlie', {name: 'Charlie default'});
-    const dave = keyring.addFromUri('//Dave', {name: 'Dave default'});
-    const ferdie = keyring.addFromUri('//Ferdie', {name: 'Ferdie default'});
     const api = await ApiPromise.create({
         types: {
             "OrderType": {
@@ -184,76 +154,9 @@ async function polkadex_market_data() {
         },
         provider: wsProvider
     });
-
-
-    const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
-    const UNIT = new BN(1000000000000,10);
-    const total_issuance = UNIT.mul(UNIT);
-    let options = {
-        permissions: {
-            update: null,
-            mint: null,
-            burn: null
-        }
-    }
-    // Create first token - Say USDT
-    await api.tx.genericAsset.create([total_issuance, options]).signAndSend(alice, {nonce: 0});
-    // Create second token - Say BTC
-    await api.tx.genericAsset.create([total_issuance, options]).signAndSend(alice, {nonce: 1});
-    // Note token created first has Token ID as 1 and second token has ID 2.
-    // Create the tradingPair BTC/USDT - (2,1)
-    await api.tx.polkadex.registerNewOrderbook(2, 1).signAndSend(alice, {nonce: 2});
-
-    let keys_to_generate = 1000;
-    // Let's create 1000 keys
-    let keys = []
-    let nonces = []
-    for(let i=0; i<keys_to_generate;i++){
-        const key = keyring.addFromUri('//Alice'+i.toString(), {name: 'Alice '+i.toString()});
-        keys.push(key);
-        nonces.push(0);
-        console.log("Creating key #",i)
-    }
-    let alice_nonce = 3;
-    console.log("Assets Transferring...")
-    for(let i=0; i<keys_to_generate; i++){
-        await api.tx.genericAsset.transfer(1,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce});
-        await api.tx.genericAsset.transfer(2,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+1});
-        await api.tx.genericAsset.transfer(0,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+2});
-        alice_nonce = alice_nonce+3;
-        console.log("Address: ",keys[i].address," #",i)
-    }
-    console.log("Assets Transferred.")
-    keys.pop()
-    nonces.pop()
-    let counter = 0;
-    binance.websockets.trades(['BTCUSDT'], (trades) => {
-        let {e: eventType, E: eventTime, s: symbol, p: price, q: quantity, m: maker, a: tradeId} = trades;
-        // console.info(symbol+" trade update. price: "+price+", quantity: "+quantity+", BUY: "+maker);
-
-        let price_converted = new BN(cleanString((parseFloat(price) * UNIT).toString()),10);
-        let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
-        if (maker === true) {
-            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]},(status)=>{
-                console.log(status.status.toHuman())
-            });
-        } else {
-            api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[[counter%keys.length]], {nonce: nonces[counter%keys.length]},(status)=>{
-                console.log(status.status.toHuman())
-            });
-        }
-        nonces[counter%keys.length] = nonces[counter%keys.length] + 1;
-        counter = counter + 1;
-        // console.log(counter)
+    api.derive.chain.subscribeNewHeads((header) => {
+        api.rpc.author.pendingExtrinsics().then((extrinsics) => {
+            console.log("Pending Transactions in Pool: ", extrinsics.length)
+        });
     });
-
-}
-
-function cleanString(value) {
-    let pos = value.indexOf(".");
-    if (pos === -1 ){
-        return value
-    }else{
-        return value.substring(0,pos)
-    }
 }
