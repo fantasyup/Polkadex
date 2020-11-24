@@ -32,10 +32,10 @@ async function polkadex_market_data() {
     const keyring = new Keyring({type: 'sr25519'});
     // The create new instance of Alice
     const alice = keyring.addFromUri('//Alice', {name: 'Alice default'});
-    const bob = keyring.addFromUri('//Bob', {name: 'Bob default'});
-    const charlie = keyring.addFromUri('//Charlie', {name: 'Charlie default'});
-    const dave = keyring.addFromUri('//Dave', {name: 'Dave default'});
-    const ferdie = keyring.addFromUri('//Ferdie', {name: 'Ferdie default'});
+    // const bob = keyring.addFromUri('//Bob', {name: 'Bob default'});
+    // const charlie = keyring.addFromUri('//Charlie', {name: 'Charlie default'});
+    // const dave = keyring.addFromUri('//Dave', {name: 'Dave default'});
+    // const ferdie = keyring.addFromUri('//Ferdie', {name: 'Ferdie default'});
     const api = await ApiPromise.create({
         types: {
             "OrderType": {
@@ -204,29 +204,30 @@ async function polkadex_market_data() {
     // Create the tradingPair BTC/USDT - (2,1)
     await api.tx.polkadex.registerNewOrderbook(2, 1).signAndSend(alice, {nonce: 2});
 
-    let keys_to_generate = 1000;
-    // Let's create 1000 keys
-    let keys = []
-    let nonces = []
-    for(let i=0; i<keys_to_generate;i++){
-        const key = keyring.addFromUri('//Alice'+i.toString(), {name: 'Alice '+i.toString()});
-        keys.push(key);
-        nonces.push(0);
-        console.log("Creating key #",i)
-    }
+    // let keys_to_generate = 1000;
+    // // Let's create 1000 keys
+    // let keys = []
+    // let nonces = []
+    // for(let i=0; i<keys_to_generate;i++){
+    //     const key = keyring.addFromUri('//Alice'+i.toString(), {name: 'Alice '+i.toString()});
+    //     keys.push(key);
+    //     nonces.push(0);
+    //     console.log("Creating key #",i)
+    // }
+    // let alice_nonce = 3;
+    // console.log("Assets Transferring...")
+    // for(let i=0; i<keys_to_generate; i++){
+    //     await api.tx.genericAsset.transfer(1,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce});
+    //     await api.tx.genericAsset.transfer(2,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+1});
+    //     await api.tx.genericAsset.transfer(0,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+2});
+    //     alice_nonce = alice_nonce+3;
+    //     console.log("Address: ",keys[i].address," #",i)
+    // }
+    // console.log("Assets Transferred.")
+    // keys.pop()
+    // nonces.pop()
+    // let counter = 0;
     let alice_nonce = 3;
-    console.log("Assets Transferring...")
-    for(let i=0; i<keys_to_generate; i++){
-        await api.tx.genericAsset.transfer(1,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce});
-        await api.tx.genericAsset.transfer(2,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+1});
-        await api.tx.genericAsset.transfer(0,keys[i].address,total_issuance.div(new BN(keys_to_generate,10))).signAndSend(alice, {nonce: alice_nonce+2});
-        alice_nonce = alice_nonce+3;
-        console.log("Address: ",keys[i].address," #",i)
-    }
-    console.log("Assets Transferred.")
-    keys.pop()
-    nonces.pop()
-    let counter = 0;
     binance.websockets.trades(['BTCUSDT'], (trades) => {
         let {e: eventType, E: eventTime, s: symbol, p: price, q: quantity, m: maker, a: tradeId} = trades;
         // console.info(symbol+" trade update. price: "+price+", quantity: "+quantity+", BUY: "+maker);
@@ -234,16 +235,16 @@ async function polkadex_market_data() {
         let price_converted = new BN(cleanString((parseFloat(price) * UNIT).toString()),10);
         let quantity_converted =new BN(cleanString((parseFloat(quantity) * UNIT).toString()),10);
         if (maker === true) {
-            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[counter%keys.length], {nonce: nonces[counter%keys.length]},(status)=>{
+            api.tx.polkadex.submitOrder("BidLimit", tradingPairID, price_converted, quantity_converted).signAndSend(alice, {nonce: alice_nonce},(status)=>{
                 console.log(status.status.toHuman())
             });
         } else {
-            api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(keys[[counter%keys.length]], {nonce: nonces[counter%keys.length]},(status)=>{
+            api.tx.polkadex.submitOrder("AskLimit", tradingPairID, price_converted, quantity_converted).signAndSend(alice, {nonce: alice_nonce},(status)=>{
                 console.log(status.status.toHuman())
             });
         }
-        nonces[counter%keys.length] = nonces[counter%keys.length] + 1;
-        counter = counter + 1;
+        alice_nonce = alice_nonce + 1;
+        // counter = counter + 1;
         // console.log(counter)
     });
 
