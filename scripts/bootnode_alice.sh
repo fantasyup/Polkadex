@@ -1,4 +1,4 @@
-../target/debug/node-polkadex \
+../target/release/node-polkadex \
   --base-path /tmp/alice \
   --chain customSpecRaw.json \
   --alice \
@@ -6,8 +6,4 @@
   --ws-port 9944 \
   --rpc-port 9933 \
   --node-key 0000000000000000000000000000000000000000000000000000000000000001 \
-  --validator \
-  --state-cache-size 268435456 \
-  --pool-limit 65536 \
-  --pool-kbytes 524288 \
-  --db-cache 1024
+  --validator 
