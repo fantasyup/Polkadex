@@ -183,7 +183,7 @@ decl_module! {
         ///
         ///  This function returns a status that, new Order is successfully created or not.
         #[weight = 1000000000]
-	    pub fn submit_order(origin, order_type: OrderType, trading_pair: T::Hash,  price: T::Balance, quantity: T::Balance) -> dispatch::DispatchResultWithPostInfo{
+	    pub fn submit_order(origin, order_type: OrderType, trading_pair: T::Hash,  price: T::Balance, quantity: T::Balance) -> dispatch::DispatchResult{
 	        let trader = ensure_signed(origin)?;
 
             // ensure!(<Orderbooks<T>>::contains_key(&trading_pair), <Error<T>>::InvalidTradingPair);
@@ -203,7 +203,7 @@ decl_module! {
             //
             // let converted_quantity = Self::convert_balance_to_fixed_u128(quantity).ok_or(<Error<T>>::InternalErrorU128Balance)?;
 	        // Self::execute_order(trader, order_type, trading_pair, converted_price, converted_quantity)?; // TODO: It maybe an error in which case take the fees else refund
-	        Ok(Pays::No.into())
+	        Ok(())
 	    }
 
 
