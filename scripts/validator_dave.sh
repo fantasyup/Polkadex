@@ -1,7 +1,7 @@
 ../target/release/node-polkadex \
   --base-path /tmp/bob \
   --chain customSpecRaw.json \
-  --charlie \
+  --dave \
   --port 30334 \
   --ws-port 9945 \
   --rpc-port 9934 \
