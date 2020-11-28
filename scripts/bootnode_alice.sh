@@ -1,2 +1,2 @@
 rm -r -f /tmp/alice
-../target/release/node-polkadex --base-path /tmp/alice --chain customSpecRaw.json --alice --port 30333 --ws-port 9944 --node-key 0000000000000000000000000000000000000000000000000000000000000001 --validator --execution Native
+../target/release/node-polkadex --base-path /tmp/alice --chain customSpecRaw.json --alice --port 30333 --ws-port 9944 --node-key 0000000000000000000000000000000000000000000000000000000000000001 --validator --execution Native -lpeerset=trace,sync=trace,sub-libp2p=trace,libp2p=trace
