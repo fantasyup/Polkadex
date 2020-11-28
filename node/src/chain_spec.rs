@@ -10,6 +10,8 @@ use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
 use sc_service::ChainType;
 use sp_runtime::{Perbill};
+use sc_service::config::MultiaddrWithPeerId;
+use sp_runtime::sp_std::str::FromStr;
 
 // The URL for the telemetry server.
 // const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
@@ -130,7 +132,12 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 			true,
 		),
 		// Bootnodes
-		vec![],
+		vec!["/ip4/54.176.87.85/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp".parse().unwrap(), // Alice
+			 "/ip4/52.76.105.188/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD".parse().unwrap(), // Bob
+			 "/ip4/18.198.113.243/tcp/30333/p2p/12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x".parse().unwrap(), // Charlie
+			 "/ip4/217.182.197.118/tcp/30333/p2p/12D3KooWSsChzF81YDUKpe9Uk5AHV5oqAaXAcWNSPYgoLauUk4st".parse().unwrap(), // Dave
+			 "/ip4/51.79.163.57/tcp/30333/p2p/12D3KooWSuTq6MG9gPt7qZqLFKkYrfxMewTZhj9nmRHJkPwzWDG2".parse().unwrap(), // Eve
+		],
 		// Telemetry
 		None,
 		// Protocol ID
