@@ -737,7 +737,7 @@ impl<T: Trait> Module<T> {
                 let mut linkedpricelevel: LinkedPriceLevel<T> = <PriceLevels<T>>::take(&current_order.trading_pair, &orderbook.best_ask_price);
                 let mut asks_levels: Vec<FixedU128> = <AsksLevels<T>>::get(&current_order.trading_pair);
                 let mut price_level_depth: u16 = 0;
-                while current_order.quantity > FixedU128::from(0) && price_level_depth < 100 {
+                while current_order.quantity > FixedU128::from(0) && price_level_depth < 10 {
                     if let Some(mut counter_order) = linkedpricelevel.orders.pop_front() {
                         Self::do_asset_exchange(current_order,
                                                 &mut counter_order,
@@ -852,7 +852,7 @@ impl<T: Trait> Module<T> {
                 let mut linkedpricelevel: LinkedPriceLevel<T> = <PriceLevels<T>>::take(&current_order.trading_pair, &orderbook.best_bid_price);
                 let mut bids_levels: Vec<FixedU128> = <BidsLevels<T>>::get(&current_order.trading_pair);
                 let mut price_level_depth: u16 = 0;
-                while current_order.quantity > FixedU128::from(0) && price_level_depth < 100 {
+                while current_order.quantity > FixedU128::from(0) && price_level_depth < 10 {
                     if let Some(mut counter_order) = linkedpricelevel.orders.pop_front() {
                         Self::do_asset_exchange(current_order,
                                                 &mut counter_order,
