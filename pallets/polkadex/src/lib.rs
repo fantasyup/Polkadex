@@ -1,7 +1,7 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 use codec::Encode;
-use frame_support::{decl_error, decl_event, decl_module, decl_storage, dispatch, ensure};
+use frame_support::{decl_error, decl_event, decl_module, decl_storage, dispatch, ensure, debug};
 use frame_support::traits::Get;
 use frame_support::weights::Pays;
 use frame_system::ensure_signed;
@@ -770,6 +770,10 @@ impl<T: Trait> Module<T> {
                     price_level_depth = price_level_depth + 1;
                 }
 
+                if price_level_depth == 10 {
+                    debug::info!(" ORDER DEPTH REACHED!!!!!!!!!!!!!!!");
+                }
+
                 if !linkedpricelevel.orders.is_empty() {
                     <PriceLevels<T>>::insert(&current_order.trading_pair, &orderbook.best_ask_price, linkedpricelevel);
                 } else {
@@ -882,6 +886,9 @@ impl<T: Trait> Module<T> {
                         }
                     }
                     price_level_depth = price_level_depth +1;
+                }
+                if price_level_depth == 10 {
+                    debug::info!(" ORDER DEPTH REACHED!!!!!!!!!!!!!!!");
                 }
 
                 if !linkedpricelevel.orders.is_empty() {
