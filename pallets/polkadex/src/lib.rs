@@ -142,7 +142,7 @@ decl_module! {
         ///
         ///  This function returns a status that, new Trading Pair is successfully registered or not.
 
-		#[weight = 10000]
+		#[weight = 1000000000]
 		pub fn register_new_orderbook(origin, quote_asset_id: u32, base_asset_id: u32) -> dispatch::DispatchResultWithPostInfo{
 		    let trader = ensure_signed(origin)?;
 
@@ -180,7 +180,7 @@ decl_module! {
         /// # Return
         ///
         ///  This function returns a status that, new Order is successfully created or not.
-        #[weight = 10000]
+        #[weight = 1000000000]
 	    pub fn submit_order(origin, order_type: OrderType, trading_pair: T::Hash,  price: T::Balance, quantity: T::Balance) -> dispatch::DispatchResultWithPostInfo{
 	        let trader = ensure_signed(origin)?;
 

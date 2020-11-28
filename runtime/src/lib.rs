@@ -116,7 +116,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	transaction_version: 1,
 };
 
-pub const MILLISECS_PER_BLOCK: u64 = 2000;
+pub const MILLISECS_PER_BLOCK: u64 = 6000;
 
 pub const SLOT_DURATION: u64 = MILLISECS_PER_BLOCK;
 
@@ -128,6 +128,11 @@ pub const DAYS: BlockNumber = HOURS * 24;
 // Some BABE-specific stuff
 // 1 in 4 blocks (on average, not counting collisions) will be primary babe blocks.
 pub const PRIMARY_PROBABILITY: (u64, u64) = (1, 4);
+pub const EPOCH_DURATION_IN_SLOTS: u64 = {
+	const SLOT_FILL_RATE: f64 = MILLISECS_PER_BLOCK as f64 / SLOT_DURATION as f64;
+
+	(EPOCH_DURATION_IN_BLOCKS as f64 * SLOT_FILL_RATE) as u64
+};
 pub const EPOCH_DURATION_IN_BLOCKS: u32 = 10 * MINUTES;
 
 /// The version information used to identify this runtime when compiled natively.
@@ -142,7 +147,7 @@ pub fn native_version() -> NativeVersion {
 parameter_types! {
 	pub const BlockHashCount: BlockNumber = 2400;
 	/// We allow for 1 seconds of compute with a 3 second average block time.
-	pub const MaximumBlockWeight: Weight = (2*WEIGHT_PER_SECOND)/3;
+	pub const MaximumBlockWeight: Weight = 2*WEIGHT_PER_SECOND;
 	pub const AvailableBlockRatio: Perbill = Perbill::from_percent(75);
 	/// Assume 10% of weight for average on_initialize calls.
 	pub MaximumExtrinsicWeight: Weight = AvailableBlockRatio::get()
@@ -215,7 +220,7 @@ impl frame_system::Trait for Runtime {
 // }
 
 parameter_types! {
-	pub const EpochDuration: u64 = EPOCH_DURATION_IN_BLOCKS as u64;
+	pub const EpochDuration: u64 = EPOCH_DURATION_IN_SLOTS as u64;
 	pub const ExpectedBlockTime: u64 = MILLISECS_PER_BLOCK;
 }
 
