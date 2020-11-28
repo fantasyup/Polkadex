@@ -53,6 +53,8 @@ decl_event!(
 
 decl_error! {
 	pub enum Error for Module<T: Trait> {
+	    /// Order PriceLevel Iteration Reached
+	    TradeConsumeDepthReached,
 		/// Transaction contained Same AssetID for both base and quote.
 		SameAssetIdsError,
 		/// TradingPair already exists in the system
@@ -388,7 +390,6 @@ impl<T: Trait> Module<T> {
             Err(ErrorRpc::NoElementFound)
         }
     }
-
 }
 
 impl<T: Trait> Module<T> {
@@ -735,7 +736,8 @@ impl<T: Trait> Module<T> {
             OrderType::BidLimit => {
                 let mut linkedpricelevel: LinkedPriceLevel<T> = <PriceLevels<T>>::take(&current_order.trading_pair, &orderbook.best_ask_price);
                 let mut asks_levels: Vec<FixedU128> = <AsksLevels<T>>::get(&current_order.trading_pair);
-                while current_order.quantity > FixedU128::from(0) {
+                let mut price_level_depth: u16 = 0;
+                while current_order.quantity > FixedU128::from(0) && price_level_depth < 100 {
                     if let Some(mut counter_order) = linkedpricelevel.orders.pop_front() {
                         Self::do_asset_exchange(current_order,
                                                 &mut counter_order,
@@ -765,6 +767,7 @@ impl<T: Trait> Module<T> {
                             break;
                         }
                     }
+                    price_level_depth = price_level_depth + 1;
                 }
 
                 if !linkedpricelevel.orders.is_empty() {
@@ -848,7 +851,8 @@ impl<T: Trait> Module<T> {
             OrderType::AskLimit => {
                 let mut linkedpricelevel: LinkedPriceLevel<T> = <PriceLevels<T>>::take(&current_order.trading_pair, &orderbook.best_bid_price);
                 let mut bids_levels: Vec<FixedU128> = <BidsLevels<T>>::get(&current_order.trading_pair);
-                while current_order.quantity > FixedU128::from(0) {
+                let mut price_level_depth: u16 = 0;
+                while current_order.quantity > FixedU128::from(0) && price_level_depth < 100 {
                     if let Some(mut counter_order) = linkedpricelevel.orders.pop_front() {
                         Self::do_asset_exchange(current_order,
                                                 &mut counter_order,
@@ -877,6 +881,7 @@ impl<T: Trait> Module<T> {
                             break;
                         }
                     }
+                    price_level_depth = price_level_depth +1;
                 }
 
                 if !linkedpricelevel.orders.is_empty() {
