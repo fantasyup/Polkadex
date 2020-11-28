@@ -1,2 +1,2 @@
 rm -r -f /tmp/bob/
-../target/release/node-polkadex --base-path /tmp/bob --chain customSpecRaw.json --charlie --port 30333 --ws-port 9945 --rpc-port 9934 --validator --node-key 0000000000000000000000000000000000000000000000000000000000000003 --execution Native -lpeerset=debug,sync=debug,sub-libp2p=debug,libp2p=debug
+../target/release/node-polkadex --base-path /tmp/bob --chain customSpecRaw.json --charlie --port 30333 --ws-port 9945 --rpc-port 9934 --validator --node-key 0000000000000000000000000000000000000000000000000000000000000003 --execution Native
