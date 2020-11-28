@@ -12,5 +12,5 @@
   --state-cache-size 268435456 \
   --pool-limit 65536 \
   --pool-kbytes 524288 \
-  --db-cache 1024
-  --log sc_basic_authorship=trace
+  --db-cache 1024 \
+  --log lruntime=trace
