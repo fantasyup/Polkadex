@@ -7,10 +7,4 @@
   --rpc-port 9934 \
   --validator \
   --node-key 0000000000000000000000000000000000000000000000000000000000000002 \
-  --bootnodes /ip4/54.176.87.85/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp \
-  --execution Native \
-  --state-cache-size 268435456 \
-  --pool-limit 65536 \
-  --pool-kbytes 524288 \
-  --db-cache 1024 \
-  --log lruntime=trace
+  --bootnodes /ip4/54.176.87.85/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp

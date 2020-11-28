@@ -5,10 +5,4 @@
   --port 30333 \
   --ws-port 9944 \
   --node-key 0000000000000000000000000000000000000000000000000000000000000001 \
-  --validator \
-  --execution Native \
-  --state-cache-size 268435456 \
-  --pool-limit 65536 \
-  --pool-kbytes 524288 \
-  --db-cache 1024 \
-  --log lruntime=trace
+  --validator
