@@ -1,3 +1,3 @@
 rm -r -f /tmp/alice
 ../target/release/node-polkadex --base-path /tmp/alice --chain customSpecRaw.json --alice --port 30333 --ws-port 9944 --node-key 0000000000000000000000000000000000000000000000000000000000000001 --validator --execution Native \
-  --reserved-nodes /ip4/18.198.113.243/tcp/30333/p2p/12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x,/ip4/52.76.105.188/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD
+  --reserved-nodes /ip4/18.198.113.243/tcp/30333/p2p/12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x /ip4/52.76.105.188/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD -l peerset=debug
