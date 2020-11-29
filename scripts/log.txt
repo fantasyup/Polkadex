@@ -1,0 +1,203 @@
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:Substrate Node    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:✌️  version 2.0.0-55a4886-x86_64-linux-gnu    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:❤️  by Polkadex Team https://github.com/Polkadex-Substrate/Polkadex, 2017-2020    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:📋 Chain specification: Local Testnet    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:🏷 Node name: Alice    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:👤 Role: AUTHORITY    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:💾 Database: RocksDb at /tmp/alice/chains/local_testnet/db    
+2020-11-29 05:39:22.812   INFO main sc_cli::runner:⛓  Native runtime: node-polkadex-1 (node-polkadex-1.tx1.au1)    
+2020-11-29 05:39:24.222   INFO main sc_service::client::client:🔨 Initializing Genesis block/state (state: 0x8fab…2877, header-hash: 0x7e7c…240f)    
+2020-11-29 05:39:24.225   INFO main afg:👴 Loading GRANDPA authority set from genesis on what appears to be first startup.    
+2020-11-29 05:39:24.300   INFO main sc_consensus_slots:⏱  Loaded block-time = 6000 milliseconds from genesis on first-launch    
+2020-11-29 05:39:24.300   INFO main babe:👶 Creating empty BABE epoch changes on what appears to be first startup.    
+2020-11-29 05:39:24.300   WARN main sc_service::builder:Using default protocol ID "sup" because none is configured in the chain specs    
+2020-11-29 05:39:24.300   INFO main sub-libp2p:🏷 Local node identity is: 12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp    
+2020-11-29 05:39:24.314   INFO main sc_service::builder:📦 Highest known block at #0    
+2020-11-29 05:39:24.314   INFO tokio-runtime-worker substrate_prometheus_endpoint::known_os:〽️ Prometheus server started at 127.0.0.1:9615    
+2020-11-29 05:39:24.316   INFO                 main parity_ws:Listening for new connections on 127.0.0.1:9944.    
+2020-11-29 05:39:24.316   INFO                 main babe:👶 Starting BABE Authorship worker    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD")): Starting to connect    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD")    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Starting to connect    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")): Starting to connect    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4172, tv_nsec: 518052602 }    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1Ac9w7NEZAcBBUQoV9Q51nwQfv2D8yLhHRxb9qrv3LHZfY")    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:24.317  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:24.618  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")    
+2020-11-29 05:39:24.618  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:24.618  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")): Will start to connect at until Instant { tv_sec: 4172, tv_nsec: 819167535 }    
+2020-11-29 05:39:24.689  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD")    
+2020-11-29 05:39:24.689  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:24.689  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD")): Will start to connect at until Instant { tv_sec: 4172, tv_nsec: 889615798 }    
+2020-11-29 05:39:25.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1AhTx9AAMiigTFjWbsM91xtjDTDZKqAbPKMzhhD5aNiByw")    
+2020-11-29 05:39:25.618  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")    
+2020-11-29 05:39:25.618  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:25.618  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")): Will start to connect at until Instant { tv_sec: 4173, tv_nsec: 819270859 }    
+2020-11-29 05:39:25.695  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD")    
+2020-11-29 05:39:25.695  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:25.695  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD")): Will start to connect at until Instant { tv_sec: 4173, tv_nsec: 895727585 }    
+2020-11-29 05:39:27.081  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Connected(12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD, Listener { local_addr: "/ip4/172.31.13.119/tcp/30333", send_back_addr: "/ip4/52.76.105.188/tcp/47968" }): Connection was requested by PSM.    
+2020-11-29 05:39:27.081  DEBUG tokio-runtime-worker sub-libp2p:Handler(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"), ConnectionId(TaskId(8))) <= Open    
+2020-11-29 05:39:27.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1AcrcUDoAVCBwu7Fk9iJUDC7MSgbxEBxjADPNsDpbga69n")    
+2020-11-29 05:39:27.617  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")    
+2020-11-29 05:39:27.617  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:27.617  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x")): Will start to connect at until Instant { tv_sec: 4175, tv_nsec: 817485717 }    
+2020-11-29 05:39:27.644  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:27.644   INFO tokio-runtime-worker sub-libp2p:🔍 Discovered new external address for our node: /ip4/54.176.87.85/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp    
+2020-11-29 05:39:27.644  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:27.644  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:27.644  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:28.250  DEBUG tokio-runtime-worker sub-libp2p:Handler(12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD, ConnectionId(TaskId(8))) => OpenResultOk    
+2020-11-29 05:39:28.250  DEBUG tokio-runtime-worker sub-libp2p:External API <= Open(PeerId("12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"))    
+2020-11-29 05:39:29.316   INFO tokio-runtime-worker substrate:💤 Idle (1 peers), best: #0 (0x7e7c…240f), finalized #0 (0x7e7c…240f), ⬇ 0.6kiB/s ⬆ 0.6kiB/s    
+2020-11-29 05:39:29.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:29.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:29.317  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:29.317  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4177, tv_nsec: 518242137 }    
+2020-11-29 05:39:30.633  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Connected(12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x, Listener { local_addr: "/ip4/172.31.13.119/tcp/30333", send_back_addr: "/ip4/18.198.113.243/tcp/56496" }): Connection was requested by PSM.    
+2020-11-29 05:39:30.633  DEBUG tokio-runtime-worker sub-libp2p:Handler(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"), ConnectionId(TaskId(11))) <= Open    
+2020-11-29 05:39:31.081  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:31.081  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:31.081  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:31.081  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Discovered(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:31.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1AXw3djUtMAKgo4XkrZEBx3vr11cQWFHuZBbXycCo3jukc")    
+2020-11-29 05:39:31.351   INFO tokio-runtime-worker babe:👶 New epoch 0 launching at block 0x3769…7733 (block slot 267771395 >= start slot 267771395).    
+2020-11-29 05:39:31.351   INFO tokio-runtime-worker babe:👶 Next epoch starts at slot 267771495    
+2020-11-29 05:39:31.356   INFO tokio-runtime-worker substrate:✨ Imported #1 (0x3769…7733)    
+2020-11-29 05:39:31.615  DEBUG tokio-runtime-worker sub-libp2p:Handler(12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x, ConnectionId(TaskId(11))) => OpenResultOk    
+2020-11-29 05:39:31.615  DEBUG tokio-runtime-worker sub-libp2p:External API <= Open(PeerId("12D3KooWSCufgHzV4fCwRijfH2k3abrpAJxTKxEvN1FDuRXA2U9x"))    
+2020-11-29 05:39:34.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #1 (0x3769…7733), finalized #0 (0x7e7c…240f), ⬇ 1.7kiB/s ⬆ 1.8kiB/s    
+2020-11-29 05:39:34.317  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:34.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:34.318  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:34.318  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4182, tv_nsec: 518433305 }    
+2020-11-29 05:39:36.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0x3769e463f934c08f4aeb1dfc7aa624f529fda9d7408d845bdd7bb08febb97733    
+2020-11-29 05:39:36.003   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 2 [hash: 0x40b15e7454ea4799cff7ecc50b079b65dc30eaa2c3d4c7a433c2eedc08a4e5d1; parent_hash: 0x3769…7733; extrinsics (1): [0xf4a7…d66a]]    
+2020-11-29 05:39:36.005   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 2. Hash now 0x036f5bf366d8710b84c865ddab42eb29151b5b2fae947e155beb0bdce9961114, previously 0x40b15e7454ea4799cff7ecc50b079b65dc30eaa2c3d4c7a433c2eedc08a4e5d1.    
+2020-11-29 05:39:36.005   INFO tokio-runtime-worker substrate:✨ Imported #2 (0x036f…1114)    
+2020-11-29 05:39:39.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #2 (0x036f…1114), finalized #0 (0x7e7c…240f), ⬇ 1.5kiB/s ⬆ 1.6kiB/s    
+2020-11-29 05:39:39.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:39.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:39.318  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:39.318  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4187, tv_nsec: 518636938 }    
+2020-11-29 05:39:39.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1Ao8oyREjVUjRZ6wzqzWUyV11CUFtheVpmCR6c8CdKPPHM")    
+2020-11-29 05:39:43.331   INFO tokio-runtime-worker substrate:✨ Imported #3 (0x1828…6497)    
+2020-11-29 05:39:44.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #3 (0x1828…6497), finalized #0 (0x7e7c…240f), ⬇ 1.8kiB/s ⬆ 1.6kiB/s    
+2020-11-29 05:39:44.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:44.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:44.318  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:44.318  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4192, tv_nsec: 518830203 }    
+2020-11-29 05:39:48.832   INFO tokio-runtime-worker substrate:✨ Imported #4 (0xdfcb…8d00)    
+2020-11-29 05:39:49.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #4 (0xdfcb…8d00), finalized #1 (0x3769…7733), ⬇ 2.6kiB/s ⬆ 2.6kiB/s    
+2020-11-29 05:39:49.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:49.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:49.318  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:49.318  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4197, tv_nsec: 519022891 }    
+2020-11-29 05:39:54.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0xdfcb00d8607d7802aecd182784343a3cae5643b873b674c761294b41cb688d00    
+2020-11-29 05:39:54.003   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 5 [hash: 0xb01f1bdab63a01e6efcdda10d5b24175ae6e9c4441b7e2a1480d5fa3b9b739b1; parent_hash: 0xdfcb…8d00; extrinsics (1): [0x4e03…47c5]]    
+2020-11-29 05:39:54.005   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 5. Hash now 0x9ab86cc6cacda53de18939a5e9a812fe7ffdca07d2476091a14d85e65bbf0b51, previously 0xb01f1bdab63a01e6efcdda10d5b24175ae6e9c4441b7e2a1480d5fa3b9b739b1.    
+2020-11-29 05:39:54.005   INFO tokio-runtime-worker substrate:✨ Imported #5 (0x9ab8…0b51)    
+2020-11-29 05:39:54.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #5 (0x9ab8…0b51), finalized #2 (0x036f…1114), ⬇ 2.1kiB/s ⬆ 2.1kiB/s    
+2020-11-29 05:39:54.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:54.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:54.318  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:54.318  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4202, tv_nsec: 519203341 }    
+2020-11-29 05:39:55.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1AkiCY9V8zj9bkDnikUd1mkaCkKDFnZG2xRqtKWgR3Nuf3")    
+2020-11-29 05:39:57.768   INFO ThreadId(24) parity_ws::io:Accepted a new tcp connection from 127.0.0.1:50066.    
+2020-11-29 05:39:59.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #5 (0x9ab8…0b51), finalized #3 (0x1828…6497), ⬇ 2.3kiB/s ⬆ 2.8kiB/s    
+2020-11-29 05:39:59.318  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:39:59.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:39:59.319  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:39:59.319  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4207, tv_nsec: 519395754 }    
+2020-11-29 05:40:00.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0x9ab86cc6cacda53de18939a5e9a812fe7ffdca07d2476091a14d85e65bbf0b51    
+2020-11-29 05:40:00.003   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 6 [hash: 0xbeee46cefe9b0847e704fc4bbb2b850dcecf46807cb6abade4e96a017aea74ec; parent_hash: 0x9ab8…0b51; extrinsics (5): [0x3922…a615, 0x024e…8ea6, 0x8807…d075, 0xe2ea…ad8f, 0x4666…f68b]]    
+2020-11-29 05:40:00.006   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 6. Hash now 0xf5bd4859dc70af2d07e2662d9169b5bfd893c738edd05eff7be766e2b9935ea0, previously 0xbeee46cefe9b0847e704fc4bbb2b850dcecf46807cb6abade4e96a017aea74ec.    
+2020-11-29 05:40:00.006   INFO tokio-runtime-worker substrate:✨ Imported #6 (0xf5bd…5ea0)    
+2020-11-29 05:40:04.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #6 (0xf5bd…5ea0), finalized #4 (0xdfcb…8d00), ⬇ 2.3kiB/s ⬆ 3.1kiB/s    
+2020-11-29 05:40:04.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:04.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:04.319  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:04.319  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4212, tv_nsec: 519602672 }    
+2020-11-29 05:40:06.971   INFO tokio-runtime-worker substrate:✨ Imported #7 (0x041f…3ab9)    
+2020-11-29 05:40:09.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #7 (0x041f…3ab9), finalized #5 (0x9ab8…0b51), ⬇ 2.9kiB/s ⬆ 3.6kiB/s    
+2020-11-29 05:40:09.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:09.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:09.319  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:09.319  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4217, tv_nsec: 519779015 }    
+2020-11-29 05:40:12.764   INFO tokio-runtime-worker substrate:✨ Imported #8 (0x3522…a819)    
+2020-11-29 05:40:14.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #8 (0x3522…a819), finalized #5 (0x9ab8…0b51), ⬇ 2.6kiB/s ⬆ 3.1kiB/s    
+2020-11-29 05:40:14.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:14.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:14.319  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:14.319  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4222, tv_nsec: 519986443 }    
+2020-11-29 05:40:18.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0x35225a1d3fd6a1fed70d0593cb8ad182a9ebf42878500cc3936ce0c65114a819    
+2020-11-29 05:40:18.005   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 9 [hash: 0x8afc780e78cbcc644ba4e35eb4d58c8d088cd7a068584ca4831cf99eafeb109c; parent_hash: 0x3522…a819; extrinsics (20): [0xb127…acca, 0x75c1…64ec, 0x36cd…43e8, 0xa8df…2d9c, 0xafdb…c32b, 0x9534…732e, 0xca90…3354, 0xe8f2…9ad6, 0xacff…5e99, 0xcccd…64ea, 0xee95…ec7f, 0xf11d…b28e, 0x39aa…c532, 0x0faf…99c2, 0x9fe0…f9b0, 0x31a0…7dc4, 0x8259…6b0f, 0x074f…45d6, 0x335f…f481, 0x63cd…1e04]]    
+2020-11-29 05:40:18.007   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 9. Hash now 0x54507f52d4d6504d1518d57b0e9110a7ebabc7f90f8f02fe2665c8c245dadca5, previously 0x8afc780e78cbcc644ba4e35eb4d58c8d088cd7a068584ca4831cf99eafeb109c.    
+2020-11-29 05:40:18.008   INFO tokio-runtime-worker substrate:✨ Imported #9 (0x5450…dca5)    
+2020-11-29 05:40:19.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #9 (0x5450…dca5), finalized #6 (0xf5bd…5ea0), ⬇ 2.2kiB/s ⬆ 5.2kiB/s    
+2020-11-29 05:40:19.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:19.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:19.319  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:19.319  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4227, tv_nsec: 520193338 }    
+2020-11-29 05:40:24.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0x54507f52d4d6504d1518d57b0e9110a7ebabc7f90f8f02fe2665c8c245dadca5    
+2020-11-29 05:40:24.004   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 10 [hash: 0x4494fe6ad2c22939c645825d15e1b46044b4cede4d2d43c6327eeb6ecb390262; parent_hash: 0x5450…dca5; extrinsics (11): [0x4da6…9312, 0x5f8e…8598, 0x58f0…ae74, 0x44e2…108e, 0x01d5…f407, 0xf984…7cd8, 0x6323…4363, 0xdb68…4184, 0x606a…fc49, 0xb76c…bd35, 0xf5d4…2010]]    
+2020-11-29 05:40:24.006   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 10. Hash now 0x1c0b4c9fa63c34a432dbf27d8fb4b541b3c197bbb56474d0e449224954ed0582, previously 0x4494fe6ad2c22939c645825d15e1b46044b4cede4d2d43c6327eeb6ecb390262.    
+2020-11-29 05:40:24.007   INFO tokio-runtime-worker substrate:✨ Imported #10 (0x1c0b…0582)    
+2020-11-29 05:40:24.317   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #10 (0x1c0b…0582), finalized #7 (0x041f…3ab9), ⬇ 2.2kiB/s ⬆ 2.8kiB/s    
+2020-11-29 05:40:24.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:24.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:24.319  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:24.320  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4232, tv_nsec: 520372716 }    
+2020-11-29 05:40:27.319  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Starting random Kademlia request for PeerId("1Aj9w28PogNZYKdVzGXqoXJxrKo6KYgAvxKX1q7tKKo2hG")    
+2020-11-29 05:40:29.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #10 (0x1c0b…0582), finalized #8 (0x3522…a819), ⬇ 2.5kiB/s ⬆ 8.7kiB/s    
+2020-11-29 05:40:29.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:29.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:29.320  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:29.320  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4237, tv_nsec: 520592533 }    
+2020-11-29 05:40:30.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0x1c0b4c9fa63c34a432dbf27d8fb4b541b3c197bbb56474d0e449224954ed0582    
+2020-11-29 05:40:30.012   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 11 [hash: 0xcdb467ff53ce736848fd14d37ef8f702e8ab06ea849ddaf47112e51604c738b9; parent_hash: 0x1c0b…0582; extrinsics (76): [0x9293…1dd4, 0x7d2e…13a3, 0x25b2…3a22, 0x781e…486e, 0x61bf…2d2f, 0x7439…13a9, 0x8099…5f4c, 0x99a1…ce75, 0x388a…92e1, 0x8df2…c9c3, 0x4145…7d88, 0xd8b7…7ade, 0xdac3…6cbd, 0x979e…4ef4, 0xbe26…e642, 0x4694…ce8b, 0xbf74…ba7a, 0x79fb…ffad, 0xa523…5554, 0xf7ac…4b08, 0xc6d4…35b7, 0x85d0…c632, 0xd7a9…ade5, 0xa8da…c057, 0xbb14…3758, 0x6d9f…3478, 0x98fb…a210, 0x64c8…783f, 0xc807…9fb6, 0x98bc…501c, 0x034d…c505, 0xfbad…bd84, 0xb18d…1db1, 0xa57c…110b, 0xaaa1…7cb8, 0x7492…290e, 0x4ae4…e7e3, 0xb6cd…33b3, 0xf7bc…3273, 0x7361…4e52, 0x7047…0fd1, 0xaebe…409c, 0x6110…e5bc, 0x2ff7…aa0d, 0x09b8…ff4d, 0xc2dd…8df6, 0x4823…3a7f, 0x9514…19d0, 0xc889…ecda, 0xe7ab…a1b3, 0x22ec…9e96, 0xa4dc…0522, 0xa671…c93f, 0x12df…7b5a, 0x1aa4…fd02, 0x98fe…e707, 0x664c…0804, 0x1239…ac63, 0x99a8…a76e, 0x3f06…ab00, 0xfa64…b6ef, 0xc7ae…8309, 0xdf10…4e56, 0x4b08…4a93, 0x66e3…687f, 0x1541…07bd, 0x474c…b6f0, 0x938c…71ef, 0xeabd…d13a, 0x227a…cfab, 0x1de6…5946, 0x7652…cc26, 0x30c1…156f, 0xbdc6…3ae3, 0x03ec…bc06, 0x0fac…ccb8]]    
+2020-11-29 05:40:30.014   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 11. Hash now 0xc69a8216d6becad566273d88587b8c203fcc7100d396abf1d29f0d3e342dad01, previously 0xcdb467ff53ce736848fd14d37ef8f702e8ab06ea849ddaf47112e51604c738b9.    
+2020-11-29 05:40:30.014   INFO tokio-runtime-worker substrate:✨ Imported #11 (0xc69a…ad01)    
+2020-11-29 05:40:34.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #11 (0xc69a…ad01), finalized #9 (0x5450…dca5), ⬇ 2.4kiB/s ⬆ 13.2kiB/s    
+2020-11-29 05:40:34.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:34.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:34.320  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:34.320  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4242, tv_nsec: 520790508 }    
+2020-11-29 05:40:37.159   INFO tokio-runtime-worker substrate:✨ Imported #12 (0xc222…7278)    
+2020-11-29 05:40:39.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #12 (0xc222…7278), finalized #10 (0x1c0b…0582), ⬇ 5.1kiB/s ⬆ 6.4kiB/s    
+2020-11-29 05:40:39.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:39.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:39.320  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:39.320  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4247, tv_nsec: 521019551 }    
+2020-11-29 05:40:42.878   INFO tokio-runtime-worker substrate:✨ Imported #13 (0xbad6…2169)    
+2020-11-29 05:40:44.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #13 (0xbad6…2169), finalized #10 (0x1c0b…0582), ⬇ 3.9kiB/s ⬆ 5.9kiB/s    
+2020-11-29 05:40:44.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:44.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:44.320  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:44.320  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4252, tv_nsec: 521200557 }    
+2020-11-29 05:40:48.741   INFO tokio-runtime-worker substrate:✨ Imported #14 (0x87e4…0b22)    
+2020-11-29 05:40:49.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #14 (0x87e4…0b22), finalized #11 (0xc69a…ad01), ⬇ 3.2kiB/s ⬆ 7.5kiB/s    
+2020-11-29 05:40:49.320  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:49.321  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:49.321  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:49.321  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4257, tv_nsec: 521418986 }    
+2020-11-29 05:40:54.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #14 (0x87e4…0b22), finalized #12 (0xc222…7278), ⬇ 2.4kiB/s ⬆ 10.8kiB/s    
+2020-11-29 05:40:54.321  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:54.321  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:54.321  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:54.321  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4262, tv_nsec: 521588633 }    
+2020-11-29 05:40:55.233   INFO tokio-runtime-worker substrate:✨ Imported #15 (0x81c3…1da2)    
+2020-11-29 05:40:59.318   INFO tokio-runtime-worker substrate:💤 Idle (2 peers), best: #15 (0x81c3…1da2), finalized #13 (0xbad6…2169), ⬇ 5.4kiB/s ⬆ 3.0kiB/s    
+2020-11-29 05:40:59.321  DEBUG tokio-runtime-worker sub-libp2p:Libp2p <= Dial PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp") now that ban has expired    
+2020-11-29 05:40:59.321  DEBUG tokio-runtime-worker sub-libp2p:Libp2p => Dial failure for PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")    
+2020-11-29 05:40:59.321  DEBUG tokio-runtime-worker sub-libp2p:PSM <= Dropped(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"))    
+2020-11-29 05:40:59.321  DEBUG tokio-runtime-worker sub-libp2p:PSM => Connect(PeerId("12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp")): Will start to connect at until Instant { tv_sec: 4267, tv_nsec: 521788068 }    
+2020-11-29 05:41:00.002   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🙌 Starting consensus session on top of parent 0x81c3731a3e398b5cad9f51de87b21528f39abdfc00d91495243a17f7a2c31da2    
+2020-11-29 05:41:00.010   INFO tokio-runtime-worker sc_basic_authorship::basic_authorship:🎁 Prepared block for proposing at 16 [hash: 0x64f03f1ffe72d1b9cbf42e53686c9048c7a02ca5e79b8951b4e3a3f0e90cb92d; parent_hash: 0x81c3…1da2; extrinsics (65): [0x8a73…95c7, 0xbe45…ae36, 0x909e…2826, 0x873a…b48d, 0xca6d…1229, 0x2b3d…0b8e, 0x4093…7992, 0x10a5…089d, 0xb42e…c65f, 0x1f26…c8a9, 0x5465…1312, 0xb6bd…6c94, 0xf736…09bf, 0x3b65…8315, 0x6bda…f21f, 0xcade…937c, 0x6e98…ad95, 0x6851…4d6b, 0xaae4…95c7, 0xadb1…90ab, 0xc6c9…6da9, 0x4604…b577, 0x4ec2…e4d9, 0xde0b…c4fb, 0x5cc3…78e9, 0x4e9b…165a, 0x5502…b171, 0x4638…4eb8, 0xfda2…f464, 0x6db0…ba0b, 0x0e08…11ca, 0xc48d…c9b6, 0xc55f…8b6a, 0x138a…7e53, 0x5e51…ab49, 0x09c4…8903, 0x350b…17d0, 0xbfcf…cd42, 0x1f9f…9394, 0x0a1e…14c0, 0x654c…881f, 0x29e3…4b77, 0x2be9…e84e, 0x2989…b73a, 0x0434…f629, 0xfd4a…b994, 0x4381…5532, 0x0e98…cc37, 0x49d4…d905, 0x721a…51c9, 0xfd1d…3ea5, 0x9f99…af15, 0x4b10…78a8, 0xa2d7…5c66, 0x947f…9d61, 0x4925…8388, 0x7113…1f51, 0xc373…33ba, 0xebcd…d08d, 0xa4f8…349a, 0x70f8…5909, 0xf1e5…c135, 0x03a0…342c, 0x9718…0631, 0x976d…0f92]]    
+2020-11-29 05:41:00.013   INFO tokio-runtime-worker sc_consensus_slots:🔖 Pre-sealed block for proposal at 16. Hash now 0x90fc74e6a2ed25d26f161287f4b1c5da43cfa7eadc7f15b85ace1d5db824bb10, previously 0x64f03f1ffe72d1b9cbf42e53686c9048c7a02ca5e79b8951b4e3a3f0e90cb92d.    
+2020-11-29 05:41:00.013   INFO tokio-runtime-worker substrate:✨ Imported #16 (0x90fc…bb10)    
