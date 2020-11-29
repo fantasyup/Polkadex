@@ -186,23 +186,23 @@ decl_module! {
 	    pub fn submit_order(origin, order_type: OrderType, trading_pair: T::Hash,  price: T::Balance, quantity: T::Balance) -> dispatch::DispatchResultWithPostInfo{
 	        let trader = ensure_signed(origin)?;
 
-            // ensure!(<Orderbooks<T>>::contains_key(&trading_pair), <Error<T>>::InvalidTradingPair);
-            // ensure!(price.checked_mul(&quantity).is_some(),<Error<T>>::OverFlowError);
-            // match order_type {
-            //     OrderType::BidLimit | OrderType::AskLimit => {
-            //         ensure!(price > 1000000.into() && quantity > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
-            //     },
-            //     OrderType::BidMarket => {
-            //         ensure!(price > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
-            //     },
-            //     OrderType::AskMarket => {
-            //         ensure!(quantity > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
-            //     }
-            // }
-            // let converted_price = Self::convert_balance_to_fixed_u128(price).ok_or(<Error<T>>::InternalErrorU128Balance)?;
-            //
-            // let converted_quantity = Self::convert_balance_to_fixed_u128(quantity).ok_or(<Error<T>>::InternalErrorU128Balance)?;
-	        // Self::execute_order(trader, order_type, trading_pair, converted_price, converted_quantity)?; // TODO: It maybe an error in which case take the fees else refund
+            ensure!(<Orderbooks<T>>::contains_key(&trading_pair), <Error<T>>::InvalidTradingPair);
+            ensure!(price.checked_mul(&quantity).is_some(),<Error<T>>::OverFlowError);
+            match order_type {
+                OrderType::BidLimit | OrderType::AskLimit => {
+                    ensure!(price > 1000000.into() && quantity > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
+                },
+                OrderType::BidMarket => {
+                    ensure!(price > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
+                },
+                OrderType::AskMarket => {
+                    ensure!(quantity > 1000000.into(), <Error<T>>::PriceOrQuantityTooLow);
+                }
+            }
+            let converted_price = Self::convert_balance_to_fixed_u128(price).ok_or(<Error<T>>::InternalErrorU128Balance)?;
+
+            let converted_quantity = Self::convert_balance_to_fixed_u128(quantity).ok_or(<Error<T>>::InternalErrorU128Balance)?;
+	        Self::execute_order(trader, order_type, trading_pair, converted_price, converted_quantity)?; // TODO: It maybe an error in which case take the fees else refund
 	        Ok(Pays::No.into())
 	    }
 
